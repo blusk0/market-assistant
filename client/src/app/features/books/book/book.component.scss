@@ -1,0 +1,26 @@
+
+.book-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.book-image {
+  width: 250px;
+}
+
+.book-info {
+  list-style: none;
+  display: inline-block;
+  font-size: 1.1rem;
+  margin-top: 0;
+  li {
+    margin-bottom: 0.5rem;
+
+    b {
+      font-weight: 700;
+      }
+  }
+
+}

@@ -1,0 +1,71 @@
+.author-picture {
+  width: 500px;
+  height: 500px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-position: center;
+  background-size: 800px;
+  background-repeat: no-repeat;
+  box-shadow: 10px 10px 8px #888888;
+}
+
+.author-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.author-info  {
+  margin-left: 2rem;
+  width: 100%;
+
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.book-card {
+  width: 500px;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  mat-card-content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  img {
+    width: 150px;
+  }
+
+  .book-info {
+    list-style: none;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin-top: 0;
+    li {
+      margin-bottom: 0.5rem;
+
+      b {
+        font-weight: 700;
+        }
+    }
+
+  }
+}
+
+.author-books-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.author-name {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 1rem 0;
+}

@@ -1,0 +1,32 @@
+<mat-card *ngIf="author$ | async as author; else loading">
+  <div class="author-container">
+    <div>
+      <div class="author-name">
+        {{ author.firstName }} {{ author.lastName }}
+      </div>
+      <div
+        class="author-picture"
+        [ngStyle]="{ 'background-image': 'url(' + author.imageUrl + ')' }"
+      ></div>
+    </div>
+    <div class="author-info">
+      <div class="author-books-container">
+        <mat-card class="book-card" *ngFor="let book of author.books">
+          <mat-card-title>{{ book.title }}</mat-card-title>
+          <mat-card-content>
+            <img [src]="book.imageUrl" />
+            <ul class="book-info">
+              <li><b>ISBN:</b> {{ book.isbn }}</li>
+              <li><b>Format:</b> {{ book.format }}</li>
+              <li><b>On Sale Date:</b> {{ book.onSaleDate | date }}</li>
+              <li><b>Publish Date:</b> {{ book.publishDate | date }}</li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</mat-card>
+<ng-template #loading>
+  <h1>Loading...</h1>
+</ng-template>

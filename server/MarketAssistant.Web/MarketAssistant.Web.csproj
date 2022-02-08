@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MarketAssistant.Business\MarketAssistant.Business.csproj" />
+    <ProjectReference Include="..\MarketAssistant.Data\MarketAssistant.Data.csproj" />
+    <ProjectReference Include="..\MarketAssistant.IBusiness\MarketAssistant.IBusiness.csproj" />
+    <ProjectReference Include="..\MarketAssistant.Models\MarketAssistant.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\authors\1.jpeg" />
+    <None Include="wwwroot\images\authors\2.jpeg" />
+    <None Include="wwwroot\images\authors\3.jpeg" />
+    <None Include="wwwroot\images\authors\4.jpeg" />
+    <None Include="wwwroot\images\authors\5.jpeg" />
+    <None Include="wwwroot\images\books\1.jpg" />
+    <None Include="wwwroot\images\books\10.jpg" />
+    <None Include="wwwroot\images\books\11.jpg" />
+    <None Include="wwwroot\images\books\12.jpg" />
+    <None Include="wwwroot\images\books\13.jpg" />
+    <None Include="wwwroot\images\books\2.jpg" />
+    <None Include="wwwroot\images\books\3.jpg" />
+    <None Include="wwwroot\images\books\4.jpg" />
+    <None Include="wwwroot\images\books\5.jpg" />
+    <None Include="wwwroot\images\books\6.jpg" />
+    <None Include="wwwroot\images\books\7.jpg" />
+    <None Include="wwwroot\images\books\8.jpg" />
+    <None Include="wwwroot\images\books\9.jpg" />
+    <None Include="wwwroot\images\marketers\1.jpeg" />
+    <None Include="wwwroot\images\marketers\2.jpeg" />
+    <None Include="wwwroot\images\marketers\3.jpeg" />
+    <None Include="wwwroot\images\marketers\4.jpeg" />
+    <None Include="wwwroot\images\marketers\5.jpeg" />
+    <None Include="wwwroot\images\marketers\6.jpeg" />
+  </ItemGroup>
+
+</Project>

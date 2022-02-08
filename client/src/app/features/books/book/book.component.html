@@ -1,0 +1,24 @@
+<mat-card *ngIf="book$ | async as book; else loading" class="book-card">
+  <mat-card-title>{{ book.title }}</mat-card-title>
+  <mat-card-content>
+    <hr />
+    <div class="book-container">
+      <img [src]="book.imageUrl" class="book-image" />
+      <ul class="book-info">
+        <li><b>ISBN:</b> {{ book.isbn }}</li>
+        <li>
+          <b>Author: </b>
+          <a [routerLink]="'/authorssssssss/' + book.authorId"
+            >{{ book.authorFirstName }} {{ book.authorLastName }}</a
+          >
+        </li>
+        <li><b>Format:</b> {{ book.format }}</li>
+        <li><b>On Sale Date:</b> {{ book.onSaleDate | date }}</li>
+        <li><b>Publish Date:</b> {{ book.publishDate | date }}</li>
+      </ul>
+    </div>
+  </mat-card-content>
+</mat-card>
+<ng-template #loading>
+  <h1>Loading...</h1>
+</ng-template>

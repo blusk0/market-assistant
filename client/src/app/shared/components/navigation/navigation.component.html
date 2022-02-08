@@ -1,0 +1,21 @@
+<nav class="mat-elevation-z6 main-nav">
+  <h1 class="app-title">Market Assistant</h1>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </button>
+    <button mat-menu-item routerLink="/books">
+      <mat-icon>menu_book</mat-icon><span>Books</span>
+    </button>
+    <button mat-menu-item routerLink="/authors">
+      <mat-icon>local_library</mat-icon><span>Authors</span>
+    </button>
+    <button mat-menu-item routerLink="/marketers">
+      <mat-icon>people</mat-icon><span>Marketers</span>
+    </button>
+  </mat-menu>
+</nav>

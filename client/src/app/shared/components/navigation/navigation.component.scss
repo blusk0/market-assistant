@@ -1,0 +1,15 @@
+.main-nav {
+  background-color: #673ab7;
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+}

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MarketAssistant.Data\MarketAssistant.Data.csproj" />
+    <ProjectReference Include="..\MarketAssistant.IBusiness\MarketAssistant.IBusiness.csproj" />
+    <ProjectReference Include="..\MarketAssistant.Models\MarketAssistant.Models.csproj" />
+  </ItemGroup>
+
+</Project>
