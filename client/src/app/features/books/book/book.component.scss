@@ -24,3 +24,18 @@
   }
 
 }
+
+.marketer-card {
+  width: 40vw;
+}
+
+table {
+  width: 100%;
+}
+
+.outer-dashboard-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}

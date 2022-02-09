@@ -9,4 +9,7 @@ export interface Book {
   onSaleDate: string;
   publishDate: string;
   imageUrl: string;
+  marketMaterials: any[];
+  marketerAssignments: any[];
+  events: any[];
 }

@@ -14,6 +14,10 @@ export class BooksService {
     return this._httpClient.get<Array<Book>>(this.apiRoot);
   }
 
+  public getFilteredBooks(label: string): Observable<Array<Book>> {
+    return this._httpClient.get<Array<Book>>(`${this.apiRoot}/${label}`);
+  }
+
   public getBook(id: number): Observable<Book> {
     return this._httpClient.get<Book>(`${this.apiRoot}/${id}`);
   }
