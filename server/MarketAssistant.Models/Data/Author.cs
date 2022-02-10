@@ -1,19 +1,24 @@
-﻿namespace MarketAssistant.Models.Data;
+﻿using System.Collections.Generic;
 
-public class Author
+namespace MarketAssistant.Models.Data
 {
-    public Author()
+
+    public class Author
     {
-        FirstName = "";
-        LastName = "";
-        Books = new List<Book>();        
+        public Author()
+        {
+            FirstName = "";
+            LastName = "";
+            Books = new List<Book>();
+        }
+
+        public int Id { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public List<Book> Books { get; set; }
     }
 
-    public int Id { get; set; }
-
-    public string FirstName { get; set; }
-
-    public string LastName { get; set; }    
-
-    public List<Book> Books { get; set; }
 }

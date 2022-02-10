@@ -13,8 +13,8 @@
       <div class="author-books-container">
         <mat-card class="book-card" *ngFor="let book of author.books">
           <mat-card-title>{{ book.title }}</mat-card-title>
-          <mat-card-content>
-            <img [src]="book.imageUrl" />
+          <mat-card-content [routerLink]="['/books/' + book.id]">
+            <img [src]="book.imageUrl"/>
             <ul class="book-info">
               <li><b>ISBN:</b> {{ book.isbn }}</li>
               <li><b>Format:</b> {{ book.format }}</li>

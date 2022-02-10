@@ -3,6 +3,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { Book } from 'src/app/shared/models/book';
 import { ActivatedRoute } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { MarketerAssignment } from 'src/app/shared/models/marketerAssignment';
 
 @Component({
   selector: 'app-book',
@@ -13,6 +15,19 @@ export class BookComponent implements OnInit, OnDestroy {
   private readonly _destroy$ = new Subject();
   private bookId: string;
   public book$ = new Subject<Book>();
+
+  noMarketerAssignment = ""
+
+  public MarketerAssignmentSource: MatTableDataSource<MarketerAssignment> = new MatTableDataSource();
+  marketerAssignmentDisplayedColumns = ['name', 'date'];
+
+  public MarketingMaterialSource: MatTableDataSource<any> = new MatTableDataSource();
+  marketingMaterialDisplayedColumns = ['type', 'startdate', 'enddate'];
+
+  public EventSource: MatTableDataSource<any> = new MatTableDataSource();
+  eventDisplayedColumns = ['eventtype', 'eventdate'];
+
+  
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -26,7 +41,12 @@ export class BookComponent implements OnInit, OnDestroy {
     this._booksService
       .getBook(+this.bookId)
       .pipe(takeUntil(this._destroy$))
-      .subscribe((book) => this.book$.next(book));
+      .subscribe((book) => {
+        this.book$.next(book)
+        this.MarketerAssignmentSource.data = book.marketerAssignments
+        this.MarketingMaterialSource.data = book.marketMaterials
+        this.EventSource.data = book.events
+      });
   }
 
   public ngOnDestroy(): void {

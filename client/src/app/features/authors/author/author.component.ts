@@ -2,7 +2,7 @@ import { Author } from './../../../shared/models/author';
 import { Subject, takeUntil } from 'rxjs';
 import { AuthorsService } from './../../../core/services/authors.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-author',
@@ -15,6 +15,7 @@ export class AuthorComponent implements OnInit, OnDestroy {
   public author$ = new Subject<Author>();
 
   constructor(
+    private router: Router,
     private readonly route: ActivatedRoute,
     private readonly _authorsService: AuthorsService
   ) {
@@ -27,6 +28,13 @@ export class AuthorComponent implements OnInit, OnDestroy {
       .getAuthor(this.authorId)
       .pipe(takeUntil(this._destroy$))
       .subscribe((author) => this.author$.next(author));
+  }
+
+  view(element: any) {
+    this.router.navigate(
+      ['/book/', { id: element.id}]
+    );
+    console.log(element)
   }
 
   public ngOnDestroy(): void {

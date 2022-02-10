@@ -5,6 +5,7 @@ import { DashboardService } from './../../core/services/dashboard.service';
 import { Subject, takeUntil } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Book } from 'src/app/shared/models/book';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -37,7 +38,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   public data: ChartTitleItem[] = [];
 
-  constructor(private readonly _dashboardService: DashboardService) {}
+  constructor(private readonly _dashboardService: DashboardService, private router: Router) {}
 
   ngOnInit(): void {
     this._dashboardService
@@ -70,5 +71,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this._destroy$.complete();
   }
 
-  onChartSelect(event: any) {}
+  onChartSelect(event: any) {
+    this.router.navigate(
+      ['/books', { label: event.label ? event.label : event}]
+    );
+  }
 }

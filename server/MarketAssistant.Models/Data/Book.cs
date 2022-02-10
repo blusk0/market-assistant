@@ -1,4 +1,7 @@
-﻿namespace MarketAssistant.Models.Data;
+﻿using System;
+using System.Collections.Generic;
+
+namespace MarketAssistant.Models.Data;
 
 public class Book
 {
@@ -37,3 +40,4 @@ public class Book
 
     public IEnumerable<Event> Events { get; set; }
 }
+
