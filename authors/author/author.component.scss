@@ -1,0 +1,44 @@
+.author-picture {
+  width: 500px;
+  height: 500px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-position: center;
+  background-size: 800px;
+  background-repeat: no-repeat;
+  box-shadow: 10px 10px 8px #888888;
+}
+
+.book-card {
+  width: 500px;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  cursor:pointer;
+  mat-card-content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  img {
+    width: 150px;
+  }
+
+  .book-info {
+    list-style: none;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin-top: 0;
+    li {
+      margin-bottom: 0.5rem;
+
+      b {
+        font-weight: 700;
+        }
+    }
+
+  }
+}
+
+

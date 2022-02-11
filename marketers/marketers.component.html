@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-title>Marketers</mat-card-title>
+  <mat-card-content>
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="assignments">
+        <th mat-header-cell *matHeaderCellDef>Assignments</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.marketerAssignments.length }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" [routerLink]="row.id"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

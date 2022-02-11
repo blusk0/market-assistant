@@ -1,0 +1,135 @@
+<div class="outer-dashboard-container">
+  <mat-card class="chart-card">
+    <mat-card-title>Book Coverage</mat-card-title>
+    <mat-card-content>
+      <hr />
+      <div class="chart-container">
+        <ngx-charts-pie-chart
+          [scheme]="chartColorScheme"
+          [results]="data"
+          [gradient]="true"
+          [legend]="true"
+          [labels]="false"
+          [doughnut]="false"
+          (select)="onChartSelect($event)"
+        >
+        </ngx-charts-pie-chart>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="marketer-card">
+    <mat-card-title>Marketers Without Assignments</mat-card-title>
+    <mat-card-content>
+      <hr />
+      <table
+        mat-table
+        [dataSource]="marketerDataSource"
+        *ngIf="
+          marketerDataSource.data?.length;
+          else noMarketersWithoutAssignment
+        "
+      >
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef>First Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef>Last Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="assignments">
+          <th mat-header-cell *matHeaderCellDef>Assignments</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.marketerAssignments.length }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="marketerDisplayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: marketerDisplayedColumns" [routerLink]="'/marketers/' + row.id"
+        ></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
+<mat-card class="books-near-publishing-card">
+  <mat-card-title>Books Near Publishing</mat-card-title>
+  <mat-card-content>
+    <hr />
+    <table
+      mat-table
+      [dataSource]="bookDataSource"
+      *ngIf="bookDataSource.data?.length; else noNearBooks"
+    >
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Book</th>
+        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="isbn">
+        <th mat-header-cell *matHeaderCellDef>Isbn</th>
+        <td mat-cell *matCellDef="let element">{{ element.isbn }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="publishDate">
+        <th mat-header-cell *matHeaderCellDef>Publish Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.publishDate | date: "M/d/yyyy" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="authorFirstName">
+        <th mat-header-cell *matHeaderCellDef>Author First Name</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.authorFirstName }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="authorLastName">
+        <th mat-header-cell *matHeaderCellDef>Author Last Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.authorLastName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="format">
+        <th mat-header-cell *matHeaderCellDef>Format</th>
+        <td mat-cell *matCellDef="let element">{{ element.format }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="events">
+        <th mat-header-cell *matHeaderCellDef>Events</th>
+        <td mat-cell *matCellDef="let element">{{ element.events.length }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="materials">
+        <th mat-header-cell *matHeaderCellDef>Marketing Materials</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.marketMaterials.length }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="marketerAssigned">
+        <th mat-header-cell *matHeaderCellDef>Marketer Assigned</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.marketerAssignments.length ? "Yes" : "No" }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="bookDisplayColumns"></tr>
+      <tr
+        mat-row
+        class="clickable"
+        [routerLink]="'/books/' + row.id"
+        *matRowDef="let row; columns: bookDisplayColumns"
+      ></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+<ng-template #noMarketersWithoutAssignment>
+  <h2>All marketers currently have at least one assignment!</h2>
+</ng-template>
+<ng-template #noNearBooks>
+  <h2>There are currently no books within 30 days of publishing.</h2>
+</ng-template>
