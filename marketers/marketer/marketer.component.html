@@ -1,0 +1,32 @@
+<mat-card *ngIf="marketer$ | async as marketer; else loading">
+  <div class="container">
+    <div>
+      <div class="name">
+        {{ marketer.firstName }} {{ marketer.lastName }}
+      </div>
+      <div class="picture"
+           [ngStyle]="{ 'background-image': 'url(' + marketer.imageUrl + ')' }"></div>
+    </div>
+    <div class="info">
+      <div class="name">
+        History of assignments
+      </div>
+      <div class="flexcontainer" *ngFor="let assignment of marketer.marketerAssignments">
+        <mat-card class="book-card" [routerLink]="'/books/' + assignment.book?.id">
+          <mat-card-content>
+            <ul class="book-info">
+              <li><b>Title:</b> {{ assignment.book?.title }}</li>
+              <li><b>ISBN:</b> {{ assignment.book?.isbn }}</li>
+              <li><b>Assignment Date:</b> {{ assignment.assignedDt | date }}</li>
+              <li><b>Un-Assignment Date:</b> {{ assignment.unassignedDt | date }}</li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</mat-card>
+<ng-template #loading>
+  <h1>Loading...</h1>
+</ng-template>
+

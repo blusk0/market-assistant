@@ -1,0 +1,23 @@
+.outer-dashboard-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.chart-container {
+  width: 50vw;
+  height: 40vh;
+}
+
+.chart-card {
+  width: 50vw;
+}
+
+.marketer-card {
+  width: 40vw;
+}
+
+.books-near-publishing-card {
+  margin-top: 1rem;
+}
